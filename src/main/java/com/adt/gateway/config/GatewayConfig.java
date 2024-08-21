@@ -26,6 +26,11 @@ public class GatewayConfig {
 
 	@Value("${server.servlet.context-path}")
 	private String gatewayContext;
+	
+	
+	
+	@Value("${utility.service.url}")
+	private String utilityUrl;
 
 	@Autowired
 	AuthenticationFilter filter;
@@ -49,6 +54,10 @@ public class GatewayConfig {
 				.route("expensemanagement",
 						r -> r.path(gatewayContext + "/expensemanagement/**")
 								.filters(f -> f.rewritePath(gatewayContext, "")).uri(expenseUrl))
+				
+				.route("utility",
+						r -> r.path(gatewayContext + "/utility/**")
+								.filters(f -> f.rewritePath(gatewayContext, "")).uri(utilityUrl))
 
 				.build();
 	}
