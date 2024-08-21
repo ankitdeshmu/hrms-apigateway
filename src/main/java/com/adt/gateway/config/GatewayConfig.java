@@ -27,8 +27,6 @@ public class GatewayConfig {
 	@Value("${server.servlet.context-path}")
 	private String gatewayContext;
 	
-	
-	
 	@Value("${utility.service.url}")
 	private String utilityUrl;
 
